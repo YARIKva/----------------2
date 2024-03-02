@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Video Loading Simulation</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+  .container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    text-align: center;
+  }
+  .image {
+    width: 200px;
+    height: 150px;
+    background-color: #f0f0f0;
+    margin-bottom: 20px;
+  }
+  .info {
+    background-color: #e9e9e9;
+    padding: 10px;
+    margin-bottom: 20px;
+  }
+  .button {
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  @media (min-width: 768px) {
+    .container {
+      flex-direction: row;
+    }
+    .info {
+      margin-left: 20px;
+      margin-bottom: 0;
+    }
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+  <div class="image"></div>
+  <div class="info">
+    <p>Video Title</p>
+    <p>Loading: <span id="progress">0%</span></p>
+  </div>
+  <button class="button" onclick="simulateLoading()">Start Loading</button>
+</div>
+
+<script>
+  function simulateLoading() {
+    let progress = 0;
+    let interval = setInterval(() => {
+      progress += 10;
+      document.getElementById('progress').textContent = progress + '%';
+      if (progress >= 100) {
+        clearInterval(interval);
+      }
+    }, 1000);
+  }
+</script>
+
+</body>
+</html>
